@@ -1,5 +1,5 @@
 <h2>Reservation List</h2>
-<ul>
+<ul *ngIf="reservations.length; else noReservations">
   <li *ngFor="let reservation of reservations">
     Guest: {{ reservation.guestName }} <br />
     Email: {{ reservation.guestEmail }} <br />
@@ -8,3 +8,8 @@
     Room Number: {{ reservation.roomNumber }} <br />
   </li>
 </ul>
+
+<!-- Creating a local reference ( using #) -->
+<ng-template #noReservations>
+  <p>No reservations available at the moment!</p>
+</ng-template>

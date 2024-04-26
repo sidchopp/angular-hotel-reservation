@@ -25,6 +25,9 @@ export class ReservationService {
   }
 
   addReservation(reservation: Reservation): void {
+    // Creating id for a new reservation from current date
+    reservation.id = Date.now().toString();
+
     this.reservations.push(reservation);
     localStorage.setItem('reservations', JSON.stringify(this.reservations));
   }

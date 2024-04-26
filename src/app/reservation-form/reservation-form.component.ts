@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
 
@@ -11,10 +12,11 @@ import { Reservation } from '../models/reservation';
 export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup = new FormGroup({});
 
-  // Dependency injection - form builder, reservation service will be invoked/injected On init
+  // Dependency injection - form builder, reservation service, router, etc will be invoked/injected On init
   constructor(
     private formBuilder: FormBuilder,
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class ReservationFormComponent implements OnInit {
     if (this.reservationForm.valid) {
       let reservation: Reservation = this.reservationForm.value;
       this.reservationService.addReservation(reservation);
+
+      this.router.navigate(['/reservation-list']);
     }
   }
 }

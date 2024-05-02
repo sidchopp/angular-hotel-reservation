@@ -27,7 +27,6 @@ export class ReservationFormComponent implements OnInit {
       checkOutDate: ['', Validators.required],
       guestName: ['', Validators.required],
       guestEmail: ['', [Validators.required, Validators.email]],
-      roomNumber: ['', Validators.required],
     });
 
     // grab id from current url's parameter, and then get its Reservation details and put them into reservation Form for edit

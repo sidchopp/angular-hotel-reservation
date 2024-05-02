@@ -1,0 +1,2 @@
+/reservation-list/* /reservation-new/:splat 301
+/reservation-list/* /reservation-list/:splat 301
